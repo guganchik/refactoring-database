@@ -28,13 +28,13 @@ public class AssemblyController {
     @PostMapping
     public ResponseEntity<PCAssembly> getAssembly(@Valid @RequestBody ComponentsIdDto componentsId) {
         log.info("Received request to assemble PC components: {}", componentsId);
-        ComputerCases computerCases = computerCasesService.getById(componentsId.getComputercasesid());
-        DataStorage dataStorage = dataStorageService.getById(componentsId.getDatastorageid());
-        MotherBoards motherBoards = motherBoardsService.getById(componentsId.getMotherboardsid());
-        PowerSupply powerSupply = powerSupplyService.getById(componentsId.getPowersupplyid());
-        Processors processors = processorsService.getById(componentsId.getProcessorsid());
-        RamMemory ramMemory = ramMemoryService.getById(componentsId.getRam_memoryid());
-        GraphicsCards graphicsCards = graphicsCardsService.getById(componentsId.getGraphicscardsid());
+        ComputerCases computerCases = computerCasesService.getById(componentsId.getComputercasesid()).orElseThrow();
+        DataStorage dataStorage = dataStorageService.getById(componentsId.getDatastorageid()).orElseThrow();
+        MotherBoards motherBoards = motherBoardsService.getById(componentsId.getMotherboardsid()).orElseThrow();
+        PowerSupply powerSupply = powerSupplyService.getById(componentsId.getPowersupplyid()).orElseThrow();
+        Processors processors = processorsService.getById(componentsId.getProcessorsid()).orElseThrow();
+        RamMemory ramMemory = ramMemoryService.getById(componentsId.getRam_memoryid()).orElseThrow();
+        GraphicsCards graphicsCards = graphicsCardsService.getById(componentsId.getGraphicscardsid()).orElseThrow();
 
         if(computerCases==null || dataStorage==null || motherBoards==null || powerSupply==null ||
                 processors==null || ramMemory==null || graphicsCards==null) {

@@ -1,5 +1,24 @@
 package com.example.coursework.components;
 
-public record Processors(String name,String manufacturer,String cores,String clockspeed,String socket,Integer price){
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
+@Entity
+public class Processors{
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    @Column
+    private String name;
+    @Column
+    private String manufacturer;
+    @Column
+    private String cores;
+    @Column
+    private String clockspeed;
+    @Column
+    private String socket;
+    @Column
+    private Integer price;
 }

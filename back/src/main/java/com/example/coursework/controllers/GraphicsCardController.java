@@ -15,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("/graphics-сards")
+@RequestMapping("/graphics-cards")
 @RestController
 @RequiredArgsConstructor
 public class GraphicsCardController {

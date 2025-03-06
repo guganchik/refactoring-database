@@ -10,29 +10,29 @@ import lombok.Setter;
 public class ComponentsIdDto {
     @Min(0)
     @NotNull(message = "Computer case ID cannot be null")
-    private Integer computercasesid;
+    private Long computercasesid;
 
     @Min(0)
     @NotNull(message = "Data storage ID cannot be null")
-    private Integer datastorageid;
+    private Long datastorageid;
 
     @Min(0)
     @NotNull(message = "Graphics card ID cannot be null")
-    private Integer graphicscardsid;
+    private Long graphicscardsid;
 
     @Min(0)
     @NotNull(message = "Motherboard ID cannot be null")
-    private Integer motherboardsid;
+    private Long motherboardsid;
 
     @Min(0)
     @NotNull(message = "Power supply ID cannot be null")
-    private Integer powersupplyid;
+    private Long powersupplyid;
 
     @Min(0)
     @NotNull(message = "Processor ID cannot be null")
-    private Integer processorsid;
+    private Long processorsid;
 
     @Min(0)
     @NotNull(message = "RAM ID cannot be null")
-    private Integer ram_memoryid;
+    private Long ram_memoryid;
 }

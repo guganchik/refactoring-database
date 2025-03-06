@@ -11,6 +11,7 @@ const CasesPage = () => {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
         })
             .then((response) => response.json())

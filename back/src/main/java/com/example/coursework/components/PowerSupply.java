@@ -1,5 +1,23 @@
 package com.example.coursework.components;
 
-public record PowerSupply(String name, String manufacturer, String power, String modular, Integer price){
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
+@Entity
+@Table(name = "powersupply")
+public class PowerSupply{
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    @Column
+    private String name;
+    @Column
+    private String manufacturer;
+    @Column
+    private String power;
+    @Column
+    private String modular;
+    @Column
+    private Integer price;
 }

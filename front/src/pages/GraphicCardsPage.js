@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import DataTable from "react-data-table-component";
 
 const GraphicCardsPage = () => {
-    const url = 'http://localhost:35941/graphics-сards'
+    const url = 'http://localhost:35941/graphics-cards'
 
     const [data, setData] = useState('');
 
@@ -11,6 +11,7 @@ const GraphicCardsPage = () => {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
         })
             .then((response) => response.json())

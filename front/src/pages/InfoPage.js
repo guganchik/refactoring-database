@@ -14,7 +14,7 @@ const InfoPage = () => {
     console.log(useLocation())
     const location = useLocation();
     const state = location.state;
-    const url = 'http://localhost:35941/assembly'
+    const url = 'http://localhost:35941/assemblies'
     const [data, setData] = useState('');
 
     useEffect(() => {
@@ -23,10 +23,10 @@ const InfoPage = () => {
             body: JSON.stringify(state),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
         })
             .then((response) => response.json())
-            // .then((response) => console.log(response))
             .then((response) => setData(response))
     }, [])
 

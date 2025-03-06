@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -13,10 +14,10 @@ public class MotherBoardsService {
     private final MotherBoardsRepository motherBoardsRepository;
 
     public List<MotherBoards> getAll(){
-        return motherBoardsRepository.getAll();
+        return motherBoardsRepository.findAll();
     }
 
-    public MotherBoards getById(int id){
-        return  motherBoardsRepository.getById(id);
+    public Optional<MotherBoards> getById(Long id){
+        return  motherBoardsRepository.findById(id);
     }
 }

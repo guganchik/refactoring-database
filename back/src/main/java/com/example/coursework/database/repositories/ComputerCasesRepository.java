@@ -1,26 +1,19 @@
 package com.example.coursework.database.repositories;
 
 import com.example.coursework.components.ComputerCases;
-import com.example.coursework.components.DataStorage;
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ComputerCasesRepository extends CrudRepository<ComputerCases, Integer> {
-    @Query("SELECT * FROM ComputerCases;")
-    List<ComputerCases> getAll();
+public interface ComputerCasesRepository extends JpaRepository<ComputerCases, Long> {
 
-    @Query("SELECT * FROM ComputerCases where id=:id;")
-    ComputerCases getById(@Param("id") int id);
 
-    @Query("SELECT * FROM ComputerCases WHERE (:color is NULL or color = :color) AND " +
-            "(:formfactor is NULL or formfactor = :formfactor) AND" +
-            "(:minprice is NULL or price >= :minprice) AND" +
-            "(:maxprice is NULL or price <= :maxprice);")
-    List<ComputerCases> setFilter(@Param("color") String color, @Param("formfactor") String formfactor,
-                                  @Param("minprice") String minprice, @Param("maxprice") String maxprice);
+    @Query(value = "SELECT * FROM ComputerCases WHERE (?1 is NULL or color = ?1) AND " +
+            "(?2 is NULL or formfactor = ?2) AND" +
+            "(?3 is NULL or price >= ?3) AND" +
+            "(?4 is NULL or price <= ?4);", nativeQuery = true)
+    List<ComputerCases> filterComputerCases(String color, String formfactor, String minprice, String maxprice);
 }

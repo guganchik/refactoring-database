@@ -30,6 +30,7 @@ const MainPage = () => {
             body: JSON.stringify(newPost),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
         })
             .then(res => res.ok ? res : Promise.reject(res))

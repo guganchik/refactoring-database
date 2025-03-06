@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -13,10 +14,10 @@ public class DataStorageService {
     private final DataStorageRepository dataStorageRepository;
 
     public List<DataStorage> getAll(){
-        return dataStorageRepository.getAll();
+        return dataStorageRepository.findAll();
     }
 
-    public DataStorage getById(int id){
-        return  dataStorageRepository.getById(id);
+    public Optional<DataStorage> getById(Long id){
+        return  dataStorageRepository.findById(id);
     }
 }

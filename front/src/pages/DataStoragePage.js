@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import DataTable from "react-data-table-component";
 
 const DataStoragePage = () => {
-    const url = 'http://localhost:35941/data-storage'
+    const url = 'http://localhost:35941/data-storages'
 
     const [data, setData] = useState('');
 
@@ -11,6 +11,7 @@ const DataStoragePage = () => {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
         })
             .then((response) => response.json())

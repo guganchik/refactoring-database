@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -13,10 +14,10 @@ public class RamMemoryService {
     private final RamMemoryRepository ramMemoryRepository;
 
     public List<RamMemory> getAll(){
-        return ramMemoryRepository.getAll();
+        return ramMemoryRepository.findAll();
     }
 
-    public RamMemory getById(int id){
-        return  ramMemoryRepository.getById(id);
+    public Optional<RamMemory> getById(Long id){
+        return  ramMemoryRepository.findById(id);
     }
 }

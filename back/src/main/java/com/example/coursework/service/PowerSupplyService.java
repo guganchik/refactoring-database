@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -13,10 +14,10 @@ public class PowerSupplyService {
     private final PowerSupplyRepository powerSupplyRepository;
 
     public List<PowerSupply> getAll(){
-        return powerSupplyRepository.getAll();
+        return powerSupplyRepository.findAll();
     }
 
-    public PowerSupply getById(int id){
-        return  powerSupplyRepository.getById(id);
+    public Optional<PowerSupply> getById(Long id){
+        return  powerSupplyRepository.findById(id);
     }
 }
