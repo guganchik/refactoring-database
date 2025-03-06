@@ -2,11 +2,13 @@ package com.example.coursework.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class ComputerCasesFilterDto {
     @NotBlank(message = "Color cannot be empty")
     private String color;

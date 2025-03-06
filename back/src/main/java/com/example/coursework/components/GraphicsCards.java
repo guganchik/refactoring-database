@@ -1,9 +1,11 @@
 package com.example.coursework.components;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 @Entity
 @Table(name = "graphicscards")
 public class GraphicsCards{

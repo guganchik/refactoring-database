@@ -1,10 +1,12 @@
 package com.example.coursework.components;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name = "powersupply")
 public class PowerSupply{
     @Id
